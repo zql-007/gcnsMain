@@ -102,7 +102,7 @@ export default {
                   sort: 1,
                   status: 1,
                   type: 'menu',
-                  url: '/sub-app/EquipPrecisManage/divisionalBoard',
+                  url: '/EquipPrecisManage/divisionalBoard',
                   routes: '精度看板',
                   disabled: false
                 },
@@ -123,7 +123,7 @@ export default {
                   sort: 2,
                   status: 1,
                   type: 'menu',
-                  url: '/sub-app/EquipPrecisManage/standard',
+                  url: '/EquipPrecisManage/standard',
                   routes: '标准维护',
                   disabled: false
                 },
@@ -144,7 +144,7 @@ export default {
                   sort: 2,
                   status: 1,
                   type: 'menu',
-                  url: '/sub-app/EquipPrecisManage/informat',
+                  url: '/EquipPrecisManage/informat',
                   routes: '数据录入',
                   disabled: false
                 },
@@ -165,7 +165,7 @@ export default {
                   sort: 2,
                   status: 1,
                   type: 'menu',
-                  url: '/sub-app/EquipPrecisManage/leak',
+                  url: '/EquipPrecisManage/leak',
                   routes: '漏项管理',
                   disabled: false
                 },
@@ -186,7 +186,7 @@ export default {
                   sort: 2,
                   status: 1,
                   type: 'menu',
-                  url: '/sub-app/EquipPrecisManage/dataQuery',
+                  url: '/EquipPrecisManage/dataQuery',
                   routes: '数据查询',
                   disabled: false
                 },
@@ -207,7 +207,7 @@ export default {
                   sort: 2,
                   status: 1,
                   type: 'menu',
-                  url: '/sub-app/EquipPrecisManage/mark',
+                  url: '/EquipPrecisManage/mark',
                   routes: '我的打分',
                   disabled: false
                 }
@@ -354,16 +354,20 @@ export default {
     })*/
   },
   methods: {
-    handleOpenNav(key, keyPath) {
-      // console.log(key, keyPath)
+    handleOpenNav(key, keyPath, e) {
       this.clickParentItem(key, keyPath)
     },
-    handleCloseNav(key, keyPath) {
-      // console.log(key, keyPath)
+    handleCloseNav(key, keyPath, e) {
       this.clickParentItem(key, keyPath)
     },
     handleChangeNav(key, keyPath, e) {
-      this.$router.push(e.$attrs['data-url'])
+      console.log('e', e)
+      let url = null
+      if (e.$attrs['data-url']) {
+        url = '/example-son#' + e.$attrs['data-url']
+      }
+
+      this.$router.push(url)
       this.$store.commit('menu/SET_CURRENT_PAGE_ID', key)
     },
     handleCollapse() {

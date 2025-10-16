@@ -1,5 +1,4 @@
-<!--
-<template>
+<!--<template>
   <div
     style="height: 100vh; width: 100vw; overflow: hidden;">
     <transition name="loading-fade">
@@ -100,7 +99,7 @@
       </el-container>
     </el-container>
   </div>
-</template>
+</template>-->
 
 <script>
 import SideBar from '@/layouts/component/SideBar'
@@ -173,7 +172,7 @@ export default {
     window.removeEventListener('resize', this.handleWindowHeight)
   },
   methods: {
-    //-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;数据字典
+    //-----------数据字典
     async getDicInfoData() {
       const res = await post(getDicInfo, {
         codeList: [
@@ -337,7 +336,7 @@ loading-fade-leave-active {
 .el-main {
   background-color: #f4f4f5;
   height: 100%;
-  padding: 16px 24px 0;
+  //padding: 16px 24px 0;
 }
 /deep/ .el-badge__content.is-fixed {
   top: 22px;
@@ -417,7 +416,6 @@ loading-fade-leave-active {
   position: fixed;
 }*/
 </style>
--->
 <template>
   <div class="example-layout">
     <el-menu :default-active="$route.path" >
@@ -473,6 +471,3 @@ loading-fade-leave-active {
   }
 }
 </style>
-
-<script lang="ts">
-</script>
